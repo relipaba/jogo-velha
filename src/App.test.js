@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renderiza a interface temática da floresta', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(
+    screen.getByRole('heading', { level: 1, name: /trilha do jogo da velha/i })
+  ).toBeInTheDocument();
+  expect(screen.getByText(/próximo explorador/i)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /reiniciar trilha/i })).toBeInTheDocument();
 });
